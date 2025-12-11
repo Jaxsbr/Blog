@@ -4,6 +4,10 @@ import { SearchBar } from '../components/SearchBar';
 import { TagFilter } from '../components/TagFilter';
 import { FeaturedPosts } from '../components/FeaturedPosts';
 import { ActiveFilters } from '../components/ActiveFilters';
+import { Hero } from '../components/Hero';
+import { FeaturedProjects } from '../components/FeaturedProjects';
+import { AboutCard } from '../components/AboutCard';
+import { featuredProjects } from '../data/projects';
 import type { PostMetadata } from '../types/Post';
 import { fetchPostList } from '../utils/posts';
 import { createSearchIndex, searchPosts } from '../utils/search';
@@ -83,9 +87,11 @@ export function Home() {
 
     return (
         <div className="home-page">
+            <Hero />
             <div className="container">
                 <div className="home-layout">
                     <aside className="sidebar">
+                        <AboutCard />
                         <FeaturedPosts posts={allPosts} />
                         <TagFilter
                             posts={allPosts}
@@ -95,6 +101,11 @@ export function Home() {
                     </aside>
 
                     <main className="main-content">
+                        {featuredProjects.length > 0 && (
+                            <div id="projects">
+                                <FeaturedProjects />
+                            </div>
+                        )}
                         <div className="search-section">
                             <SearchBar
                                 onSearch={handleSearch}
