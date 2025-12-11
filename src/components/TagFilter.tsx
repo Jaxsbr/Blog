@@ -4,9 +4,11 @@ import type { PostMetadata } from '../types/Post';
 
 interface TagFilterProps {
     posts: PostMetadata[];
+    selectedTags?: string[];
+    onTagToggle?: (tag: string) => void;
 }
 
-export function TagFilter({ posts }: TagFilterProps) {
+export function TagFilter({ posts, selectedTags = [], onTagToggle }: TagFilterProps) {
     const { tag: activeTag } = useParams<{ tag: string }>();
     const tags = getAllTags(posts);
 
@@ -14,21 +16,40 @@ export function TagFilter({ posts }: TagFilterProps) {
         return null;
     }
 
+    const handleTagClick = (tag: string, e: React.MouseEvent) => {
+        // If onTagToggle is provided, use it for toggle behavior on Home page
+        if (onTagToggle) {
+            e.preventDefault();
+            onTagToggle(tag);
+        }
+        // Otherwise, let the Link handle navigation (TagPage)
+    };
+
+    const isActive = (tag: string) => {
+        if (onTagToggle) {
+            return selectedTags.includes(tag);
+        }
+        return activeTag === tag;
+    };
+
     return (
         <div className="tag-filter">
             <h3>Filter by Tag</h3>
             <div className="tag-list">
-                <Link
-                    to="/"
-                    className={`tag ${!activeTag ? 'active' : ''}`}
-                >
-                    All ({posts.length})
-                </Link>
+                {!onTagToggle && (
+                    <Link
+                        to="/"
+                        className={`tag ${!activeTag ? 'active' : ''}`}
+                    >
+                        All ({posts.length})
+                    </Link>
+                )}
                 {tags.map(({ tag, count }) => (
                     <Link
                         key={tag}
-                        to={`/tag/${encodeURIComponent(tag)}`}
-                        className={`tag ${activeTag === tag ? 'active' : ''}`}
+                        to={onTagToggle ? '#' : `/tag/${encodeURIComponent(tag)}`}
+                        className={`tag ${isActive(tag) ? 'active' : ''}`}
+                        onClick={(e) => handleTagClick(tag, e)}
                     >
                         {tag} ({count})
                     </Link>

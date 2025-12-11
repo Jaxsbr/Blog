@@ -3,22 +3,22 @@ import { PostList } from '../components/PostList';
 import { SearchBar } from '../components/SearchBar';
 import { TagFilter } from '../components/TagFilter';
 import { FeaturedPosts } from '../components/FeaturedPosts';
+import { ActiveFilters } from '../components/ActiveFilters';
 import type { PostMetadata } from '../types/Post';
 import { fetchPostList } from '../utils/posts';
-import { createSearchIndex, searchPosts, type SearchablePost } from '../utils/search';
+import { createSearchIndex, searchPosts } from '../utils/search';
 
 export function Home() {
     const [allPosts, setAllPosts] = useState<PostMetadata[]>([]);
-    const [searchIndex, setSearchIndex] = useState<SearchablePost[]>([]);
     const [filteredPosts, setFilteredPosts] = useState<PostMetadata[]>([]);
     const [loading, setLoading] = useState(true);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
     useEffect(() => {
         fetchPostList()
             .then((posts) => {
                 setAllPosts(posts);
-                const index = createSearchIndex(posts);
-                setSearchIndex(index);
                 setFilteredPosts(posts);
             })
             .catch((error) => {
@@ -29,10 +29,53 @@ export function Home() {
             });
     }, []);
 
-    const handleSearch = (query: string) => {
-        const results = searchPosts(searchIndex, query);
+    // Apply filters whenever search query or tags change
+    useEffect(() => {
+        let results: PostMetadata[] = allPosts;
+
+        // Apply tag filters
+        if (selectedTags.length > 0) {
+            results = results.filter(post =>
+                selectedTags.every(tag => post.tags.includes(tag))
+            );
+        }
+
+        // Apply search filter
+        if (searchQuery.trim()) {
+            const searchableResults = createSearchIndex(results);
+            const searched = searchPosts(searchableResults, searchQuery);
+            results = searched.map(({ searchText, ...post }) => post);
+        }
+
         setFilteredPosts(results);
+    }, [allPosts, searchQuery, selectedTags]);
+
+    const handleSearch = (query: string) => {
+        setSearchQuery(query);
     };
+
+    const handleTagToggle = (tag: string) => {
+        setSelectedTags(prev =>
+            prev.includes(tag)
+                ? prev.filter(t => t !== tag)
+                : [...prev, tag]
+        );
+    };
+
+    const handleClearFilters = () => {
+        setSearchQuery('');
+        setSelectedTags([]);
+    };
+
+    const handleRemoveTag = (tag: string) => {
+        if (tag === '__search__') {
+            setSearchQuery('');
+        } else {
+            handleTagToggle(tag);
+        }
+    };
+
+    const hasActiveFilters = searchQuery.trim() !== '' || selectedTags.length > 0;
 
     if (loading) {
         return <div className="loading">Loading posts...</div>;
@@ -44,14 +87,36 @@ export function Home() {
                 <div className="home-layout">
                     <aside className="sidebar">
                         <FeaturedPosts posts={allPosts} />
-                        <TagFilter posts={allPosts} />
+                        <TagFilter
+                            posts={allPosts}
+                            selectedTags={selectedTags}
+                            onTagToggle={handleTagToggle}
+                        />
                     </aside>
 
                     <main className="main-content">
                         <div className="search-section">
-                            <SearchBar onSearch={handleSearch} />
+                            <SearchBar
+                                onSearch={handleSearch}
+                                query={searchQuery}
+                                onClear={() => setSearchQuery('')}
+                            />
                         </div>
-                        <PostList posts={filteredPosts} showExcerpt />
+                        {hasActiveFilters && (
+                            <ActiveFilters
+                                searchQuery={searchQuery}
+                                selectedTags={selectedTags}
+                                resultCount={filteredPosts.length}
+                                totalCount={allPosts.length}
+                                onRemoveTag={handleRemoveTag}
+                                onClearAll={handleClearFilters}
+                            />
+                        )}
+                        <PostList
+                            posts={filteredPosts}
+                            showExcerpt
+                            totalCount={allPosts.length}
+                        />
                     </main>
                 </div>
             </div>

@@ -5,44 +5,67 @@ import { formatDate } from '../utils/posts';
 interface PostListProps {
     posts: PostMetadata[];
     showExcerpt?: boolean;
+    totalCount?: number;
 }
 
-export function PostList({ posts }: PostListProps) {
+export function PostList({ posts, showExcerpt = false, totalCount }: PostListProps) {
     if (posts.length === 0) {
         return (
             <div className="no-posts">
-                <p>No posts found.</p>
+                <h3>No posts found</h3>
+                <p>Try adjusting your search or filter criteria.</p>
             </div>
         );
     }
 
     return (
         <div className="post-list">
-            {posts.map((post) => (
-                <article key={post.slug} className="post-item">
-                    <Link to={`/post/${post.slug}`} className="post-link">
-                        <h2 className="post-title">{post.title}</h2>
-                    </Link>
+            {posts.map((post) => {
+                const visibleTags = showExcerpt ? post.tags.slice(0, 4) : post.tags;
+                const remainingTags = showExcerpt && post.tags.length > 4 ? post.tags.length - 4 : 0;
 
-                    <div className="post-meta">
-                        <time dateTime={post.date}>{formatDate(post.date)}</time>
-                        {post.tags.length > 0 && (
-                            <div className="post-tags">
-                                {post.tags.map((tag) => (
-                                    <Link
-                                        key={tag}
-                                        to={`/tag/${encodeURIComponent(tag)}`}
-                                        className="tag"
-                                        onClick={(e) => e.stopPropagation()}
-                                    >
-                                        {tag}
-                                    </Link>
-                                ))}
-                            </div>
+                return (
+                    <article key={post.slug} className="post-item">
+                        <Link to={`/post/${post.slug}`} className="post-link">
+                            <h2 className="post-title">{post.title}</h2>
+                        </Link>
+
+                        {showExcerpt && post.excerpt && (
+                            <p className="post-excerpt">{post.excerpt}</p>
                         )}
-                    </div>
-                </article>
-            ))}
+
+                        <div className="post-meta">
+                            <time dateTime={post.date}>{formatDate(post.date)}</time>
+                            {post.readingTime && (
+                                <span className="reading-time">{post.readingTime} min read</span>
+                            )}
+                            {post.tags.length > 0 && (
+                                <div className="post-tags">
+                                    {visibleTags.map((tag) => (
+                                        <Link
+                                            key={tag}
+                                            to={`/tag/${encodeURIComponent(tag)}`}
+                                            className="tag"
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            {tag}
+                                        </Link>
+                                    ))}
+                                    {remainingTags > 0 && (
+                                        <span className="tag-more">+{remainingTags} more</span>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
+                        {showExcerpt && (
+                            <Link to={`/post/${post.slug}`} className="read-more-link">
+                                Read more →
+                            </Link>
+                        )}
+                    </article>
+                );
+            })}
         </div>
     );
 }

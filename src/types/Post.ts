@@ -4,6 +4,8 @@ export interface PostMetadata {
     tags: string[];
     slug: string;
     featured?: boolean;
+    excerpt?: string;
+    readingTime?: number;
 }
 
 export interface Post extends PostMetadata {

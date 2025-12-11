@@ -34,8 +34,11 @@ export async function fetchPostList(): Promise<PostMetadata[]> {
         }) as RawPostModuleMap;
 
         const posts: PostMetadata[] = Object.entries(postModules).map(([path, content]) => {
-            const { data } = matter(content);
+            const { data, content: markdownContent } = matter(content);
             const filename = path.split('/').pop()?.replace('.md', '') || '';
+
+            const excerpt = createExcerpt(markdownContent);
+            const readingTime = calculateReadingTime(markdownContent);
 
             return {
                 title: data.title || 'Untitled',
@@ -43,6 +46,8 @@ export async function fetchPostList(): Promise<PostMetadata[]> {
                 tags: normalizeTags(data.tags),
                 slug: filename,
                 featured: data.featured || false,
+                excerpt,
+                readingTime,
             };
         });
 
