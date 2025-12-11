@@ -62,18 +62,24 @@ export function PostDetail() {
                 <ReactMarkdown
                     remarkPlugins={[remarkGfm]}
                     components={{
-                        code({ node, inline, className, children, ...props }) {
+                        code({ className, children, ...props }) {
                             const match = /language-(\w+)/.exec(className || '');
-                            return !inline && match ? (
-                                <SyntaxHighlighter
-                                    style={vscDarkPlus}
-                                    language={match[1]}
-                                    PreTag="div"
-                                    {...props}
-                                >
-                                    {String(children).replace(/\n$/, '')}
-                                </SyntaxHighlighter>
-                            ) : (
+                            const isInline = !match;
+
+                            if (!isInline && match) {
+                                return (
+                                    <SyntaxHighlighter
+                                        style={vscDarkPlus as { [key: string]: React.CSSProperties }}
+                                        language={match[1]}
+                                        PreTag="div"
+                                        {...(props as React.ComponentProps<typeof SyntaxHighlighter>)}
+                                    >
+                                        {String(children).replace(/\n$/, '')}
+                                    </SyntaxHighlighter>
+                                );
+                            }
+
+                            return (
                                 <code className={className} {...props}>
                                     {children}
                                 </code>

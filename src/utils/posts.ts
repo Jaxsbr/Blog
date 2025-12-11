@@ -25,10 +25,10 @@ const normalizeTags = (raw: unknown): string[] => {
 
 export async function fetchPostList(): Promise<PostMetadata[]> {
     try {
-        if (!globalThis.Buffer) {
-            globalThis.Buffer = Buffer;
+        if (!(globalThis as unknown as { Buffer?: typeof Buffer }).Buffer) {
+            (globalThis as unknown as { Buffer: typeof Buffer }).Buffer = Buffer;
         }
-        const postModules = import.meta.glob('../../public/posts/*.md', {
+        const postModules = import.meta.glob<string>('../../public/posts/*.md', {
             as: 'raw',
             eager: true,
         }) as RawPostModuleMap;
@@ -55,7 +55,7 @@ export async function fetchPostList(): Promise<PostMetadata[]> {
 
 export async function fetchPost(slug: string): Promise<Post | null> {
     try {
-        const basePath = (import.meta.env.BASE_URL ?? '/').replace(/\/?$/, '/');
+        const basePath = (import.meta.env?.BASE_URL ?? '/').replace(/\/?$/, '/');
         const postPath = `${basePath}posts/${encodeURIComponent(slug)}.md`;
         const response = await fetch(postPath);
         if (!response.ok) return null;
@@ -85,7 +85,7 @@ export async function fetchPost(slug: string): Promise<Post | null> {
 function createExcerpt(content: string, maxLength: number = 200): string {
     const plainText = content
         .replace(/#+\s/g, '') // Remove markdown headers
-        .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // Replace links with text
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Replace links with text
         .replace(/`[^`]+`/g, '') // Remove inline code
         .replace(/\n/g, ' ') // Replace newlines with spaces
         .trim();

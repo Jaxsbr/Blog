@@ -7,7 +7,7 @@ interface PostListProps {
     showExcerpt?: boolean;
 }
 
-export function PostList({ posts, showExcerpt = false }: PostListProps) {
+export function PostList({ posts }: PostListProps) {
     if (posts.length === 0) {
         return (
             <div className="no-posts">
