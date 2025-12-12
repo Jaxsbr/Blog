@@ -29,9 +29,7 @@ export const profile: Profile = {
     ],
     links: {
         github: 'https://github.com/Jaxsbr',
-        linkedin: 'https://linkedin.com/in/jacobusbrink',
-        resume: '/resume.pdf',
-        email: 'jacobus.brink@example.com',
+        linkedin: 'https://www.linkedin.com/in/jacobrink/',
     },
 };
 
