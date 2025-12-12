@@ -22,7 +22,7 @@ function ProjectCard({ project }: { project: Project }) {
                     </span>
                 </div>
                 {project.thumbnail && (
-                    <div className="project-thumbnail" style={{ background: `linear-gradient(135deg, var(--primary-color), #7c3aed)` }}>
+                    <div className="project-thumbnail" style={{ background: `linear-gradient(135deg, #8b9a7a, #5a6b4a)` }}>
                         {/* Placeholder for thumbnail - can be replaced with actual image */}
                     </div>
                 )}
