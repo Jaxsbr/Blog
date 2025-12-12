@@ -22,12 +22,10 @@ export function RSSPage() {
     useEffect(() => {
         if (rssContent && !loading) {
             // Set content type and serve RSS
-            const blob = new Blob([rssContent], { type: 'application/rss+xml' });
-            const _url = URL.createObjectURL(blob);
-
             // For proper RSS feed serving, we'd need server-side rendering
             // For now, we'll just display it or trigger download
             // In production, this should be handled server-side
+            // Note: RSS feed is generated at build time and served from /Blog/rss.xml
         }
     }, [rssContent, loading]);
 

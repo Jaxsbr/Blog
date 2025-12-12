@@ -14,7 +14,7 @@ export interface Profile {
 export const profile: Profile = {
     name: 'Jacobus Brink',
     role: 'Senior Full-Stack Engineer',
-    bio: 'Building AI-powered solutions through API integration, RAG systems, and full-stack development. Currently upskilling in AI integration capabilities while maintaining expertise in modern web technologies and cloud infrastructure.',
+    bio: 'Full-stack engineer with expertise in modern web technologies and cloud infrastructure. Continuously learning and adapting to new technologies—currently exploring AI integration as part of pragmatic upskilling. Focused on building scalable solutions and maintaining a balanced approach to professional growth.',
     skills: [
         'TypeScript',
         'React',

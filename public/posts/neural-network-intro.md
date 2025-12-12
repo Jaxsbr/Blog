@@ -89,7 +89,7 @@ As the neuron passes it's value through the synapses the value is modified (valu
 Neurons receiving modified values, will pass this value throught an activation function. 
 Depending on the value returned from the activation function, we can either block or pass the a next neuron call.
 
-<img src="/pkb-blog/images/NN.png"/>
+<img src="/Blog/images/NN.png" alt="Neural Network Diagram"/>
 
 ### Formula
 x = input (neuron)

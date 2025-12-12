@@ -23,7 +23,7 @@ In this post I'll talk about Boxyvault's code migration to Github and Open Id Co
 
 ## Repository Migration
 
-In my [previous post](https://jaxsbr.github.io/pkb-blog/2023/12/03/boxyvault-github-migration/) I described why I'm planning to migrate Boxyvault's code repositories from AWS CodeCommit to Github. I've now officially completed this step. 😁  
+In my [previous post](/Blog/post/boxyvault-github-migration) I described why I'm planning to migrate Boxyvault's code repositories from AWS CodeCommit to Github. I've now officially completed this step. 😁  
 Initially I thought this would involve some complexity but it was straight forward, especially since I discovered that Github provides an import mechanism that does all the heavy lifting for you.
 
 When creating a repository in Github, typically you provide some details such as `repository name`, `description`, inclusion of `.gitigore` etc. On the particular [page](https://github.com/new) I discovered an `import` [link](https://github.com/new/import) and decided to try it out. Here you have to specify the clone URL where the `source` repository resides, in my case AWS CodeCommit. Followed by the desired repository name as well as specifying if you want a `private` or `public` repository. Once all the details are provided you can hit the `Begin import` button which will prompt you for login details pertaining to you `source` repository. After completing these steps the import finished without issue.
@@ -151,4 +151,4 @@ Boxyvault is now operating out of Github, both repository management as well as 
 
 I'm excited to have these new capabilities and believe this will serve Boxyvault and it's users very well.
 
-[Previous - Boxyvault Github migration](https://jaxsbr.github.io/pkb-blog/2023/12/03/boxyvault-github-migration/) | Stay tuned for next post
+[Previous - Boxyvault Github migration](/Blog/post/boxyvault-github-migration) | Stay tuned for next post

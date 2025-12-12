@@ -4,10 +4,10 @@ export function Hero() {
     return (
         <div className="hero-section">
             <div className="hero-content">
-                <h1 className="hero-headline">Building AI-Powered Solutions</h1>
+                <h1 className="hero-headline">Adapting to Change, Building Solutions</h1>
                 <p className="hero-subtitle">
-                    Creating intelligent tools and scalable infrastructure that enhance developer productivity
-                    and deliver exceptional user experiences.
+                    Full-stack engineer focused on continuous learning and pragmatic upskilling. Currently exploring AI integration
+                    while maintaining expertise in modern web technologies and cloud infrastructure.
                 </p>
                 <div className="hero-cta">
                     <a href="#projects" className="cta-button cta-primary">

@@ -12,7 +12,7 @@ tags:
 
 ## Intro
 
-In this post I'll talk about how I manage my personal projects and the initial milestones I'd like to reach while building [Boxyvault](https://jaxsbr.github.io/pkb-blog/2023/10/13/boxyvault-file-management/)
+In this post I'll talk about how I manage my personal projects and the initial milestones I'd like to reach while building [Boxyvault](/Blog/post/boxyvault-file-management)
 
 ## Why project planning is needed?
 
@@ -65,4 +65,4 @@ In my Tasks database I have a column called "Status" and this provides a mechani
 
 Another great feature of Notion and the database system is that each record has an underlying Page representative. This means that if I need to add more context to a task, I can expand it's page and populate it with any amount of text, links, images and syntax highlighted code snippets.
 
-[Previous - Boxyvault Intro](https://jaxsbr.github.io/pkb-blog/2023/10/13/boxyvault-file-management/) | [Next - Boxyvault Lambda Infra](https://jaxsbr.github.io/pkb-blog/2023/10/27/boxyvault-lambda-infra/)
+[Previous - Boxyvault Intro](/Blog/post/boxyvault-file-management) | [Next - Boxyvault Lambda Infra](/Blog/post/boxyvault-lambda-infra)
