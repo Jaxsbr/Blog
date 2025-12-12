@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Personal Knowledge Blog</title>
+    <link>https://jaxsbr.github.io/Blog</link>
+    <description>Personal knowledge blog and portfolio</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Dec 2025 01:37:08 GMT</lastBuildDate>
+    <atom:link href="https://jaxsbr.github.io/Blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Blog Migration: From Hexo to React + TypeScript</title>
+      <link>https://jaxsbr.github.io/Blog/post/blog-migration-hexo-to-react</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/blog-migration-hexo-to-react</guid>
+      <pubDate>Thu, 11 Dec 2025 10:00:00 GMT</pubDate>
+      <description><![CDATA[Why Rebuild?  After about a year away from blogging, I decided to return with a fresh perspective—and a fresh codebase. My old blog was built with Hexo, a static site generator that served me well. Ho...]]></description>
+    </item>
+    <item>
+      <title>Boxyvault - Github CI/CD</title>
+      <link>https://jaxsbr.github.io/Blog/post/boxyvault-github-cicd</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/boxyvault-github-cicd</guid>
+      <pubDate>Fri, 22 Dec 2023 06:41:48 GMT</pubDate>
+      <description><![CDATA[Intro  In this post I'll talk about Boxyvault's code migration to Github and Open Id Connect (OIDC) learnings that enables build and deployment process implementation with Github actions (GHA).  Repos...]]></description>
+    </item>
+    <item>
+      <title>Boxyvault - Github migration</title>
+      <link>https://jaxsbr.github.io/Blog/post/boxyvault-github-migration</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/boxyvault-github-migration</guid>
+      <pubDate>Sun, 03 Dec 2023 07:00:00 GMT</pubDate>
+      <description><![CDATA[Intro  This week I will be focusing on an unexpected task, migrating Boxyvault's code repositories from AWS CodeCommit to a private Github repository. This was unexpected as I had initially planned to...]]></description>
+    </item>
+    <item>
+      <title>Boxyvault - The first Lambda function</title>
+      <link>https://jaxsbr.github.io/Blog/post/boxyvault-the-first-lambda-function</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/boxyvault-the-first-lambda-function</guid>
+      <pubDate>Fri, 10 Nov 2023 22:31:13 GMT</pubDate>
+      <description><![CDATA[Overview  This entry delves into what I discovered while implementing the first Lambda function for Boxyvault. A couple of interesting and unexpected things appeared that is worth sharing such as need...]]></description>
+    </item>
+    <item>
+      <title>Boxyvault - Lambda function origins</title>
+      <link>https://jaxsbr.github.io/Blog/post/boxyvault-lambda-infra</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/boxyvault-lambda-infra</guid>
+      <pubDate>Mon, 16 Oct 2023 07:32:47 GMT</pubDate>
+      <description><![CDATA[Intro  This week I started planning how I will structure and deploy Lambda functions. The concern for me is that it should be easy to modify and maintain both the Lambda's code and infrastructure.  Th...]]></description>
+    </item>
+    <item>
+      <title>Boxyvault - Project Planning and Milestones</title>
+      <link>https://jaxsbr.github.io/Blog/post/boxyvault-project-planning</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/boxyvault-project-planning</guid>
+      <pubDate>Sat, 14 Oct 2023 15:45:41 GMT</pubDate>
+      <description><![CDATA[Intro  In this post I'll talk about how I manage my personal projects and the initial milestones I'd like to reach while building Boxyvault  Why project planning is needed?  Well, it's not needed, how...]]></description>
+    </item>
+    <item>
+      <title>Boxyvault - Personal cloud based file management system</title>
+      <link>https://jaxsbr.github.io/Blog/post/boxyvault-file-management</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/boxyvault-file-management</guid>
+      <pubDate>Fri, 13 Oct 2023 07:06:20 GMT</pubDate>
+      <description><![CDATA[Intro  In this post I'm going to share an idea that I'm working on and why it's important to me.  Goals  - Establish consistent development progress on the Boxyvault system - Practice technical writin...]]></description>
+    </item>
+    <item>
+      <title>Python Mastery - General: Introduction to PyCharm</title>
+      <link>https://jaxsbr.github.io/Blog/post/python-mastery-general-pycharm</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/python-mastery-general-pycharm</guid>
+      <pubDate>Wed, 24 May 2023 06:42:35 GMT</pubDate>
+      <description><![CDATA[Overview  We'll quickly setup and test the PyCharm integrated development environment (IDE) made by JetBrains. PyCharm is the most popular code editor for Python.  Prerequisite: Installing Python  To...]]></description>
+    </item>
+    <item>
+      <title>Python Power-Up: Your Ultimate Reference Guide and Library Lookup</title>
+      <link>https://jaxsbr.github.io/Blog/post/python-reference-guide</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/python-reference-guide</guid>
+      <pubDate>Sun, 21 May 2023 07:19:29 GMT</pubDate>
+      <description><![CDATA[General Python Libraries - NumPy: Numerical computing library that provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on th...]]></description>
+    </item>
+    <item>
+      <title>Python Mastery - General: Introduction to Python IDLE</title>
+      <link>https://jaxsbr.github.io/Blog/post/python-mastery-general-idle</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/python-mastery-general-idle</guid>
+      <pubDate>Sat, 20 May 2023 20:04:54 GMT</pubDate>
+      <description><![CDATA[Overview  We'll explore Python IDLE, an integrated development environment (IDE) that comes bundled with Python. Python IDLE provides a convenient way to write, edit, and execute Python code.  Prerequ...]]></description>
+    </item>
+    <item>
+      <title>Microsoft's Responsible AI Principles for Building Ethical AI Systems</title>
+      <link>https://jaxsbr.github.io/Blog/post/ai-fundementals-six-principles-responsible-design</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/ai-fundementals-six-principles-responsible-design</guid>
+      <pubDate>Wed, 10 May 2023 21:39:48 GMT</pubDate>
+      <description><![CDATA[Introduction  The responsible development and deployment of AI systems is crucial to ensure fairness, reliability, security, privacy, inclusiveness, understandability, and accountability. In this arti...]]></description>
+    </item>
+    <item>
+      <title>Integrate with AWS Comprehend SDK in C#</title>
+      <link>https://jaxsbr.github.io/Blog/post/aws-comprehend-integration</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/aws-comprehend-integration</guid>
+      <pubDate>Sat, 06 May 2023 06:57:37 GMT</pubDate>
+      <description><![CDATA[Overview  AWS Comprehend is an easy to use cloud service that allows you to comprehend text by labeling each word with a language type such as , ,  and others. A probability rating is also assigned al...]]></description>
+    </item>
+    <item>
+      <title>ChatGPT C# Integration</title>
+      <link>https://jaxsbr.github.io/Blog/post/chat-gpt-csharp-integration</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/chat-gpt-csharp-integration</guid>
+      <pubDate>Mon, 01 May 2023 17:20:56 GMT</pubDate>
+      <description><![CDATA[Overview  Just like many others I've been very excited about using ChatGPT.   Here is a simple example of how you can integrate your own project with ChatGPT.    Alternatively you can checkout this si...]]></description>
+    </item>
+    <item>
+      <title>How to Specify an AWS Profile in .NET SDK for DynamoDB</title>
+      <link>https://jaxsbr.github.io/Blog/post/aws-profile-selection-dotnetsdk</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/aws-profile-selection-dotnetsdk</guid>
+      <pubDate>Fri, 17 Feb 2023 15:04:39 GMT</pubDate>
+      <description><![CDATA[Intro  Working with Amazon Web Services (AWS) DynamoDB in .NET applications can be a breeze with the AWS SDK for .NET. However, when working with multiple AWS accounts or users, it can become cumberso...]]></description>
+    </item>
+    <item>
+      <title>SQL Cheatsheet</title>
+      <link>https://jaxsbr.github.io/Blog/post/sql-cheatsheet</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/sql-cheatsheet</guid>
+      <pubDate>Fri, 09 Dec 2022 15:34:17 GMT</pubDate>
+      <description><![CDATA[Info  After struggling for hours on the interwebs I usually find the magic combination of SQL syntax for solving a particular problem.   The problem comes in when I don't frequently work with SQL and...]]></description>
+    </item>
+    <item>
+      <title>Amazon API Gateway - Throttling</title>
+      <link>https://jaxsbr.github.io/Blog/post/api-gateway-throttling</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/api-gateway-throttling</guid>
+      <pubDate>Fri, 08 Jul 2022 15:28:49 GMT</pubDate>
+      <description><![CDATA[Intro API Gateway provides me with great coordination and routing capabilities, but without the neccessary checks it can also put a big dent in my pocket. 💲💲💲    I often prototype ideas that don't...]]></description>
+    </item>
+    <item>
+      <title>Sharing S3 files securely with Signed Urls</title>
+      <link>https://jaxsbr.github.io/Blog/post/s3-signed-urls</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/s3-signed-urls</guid>
+      <pubDate>Fri, 01 Jul 2022 06:49:39 GMT</pubDate>
+      <description><![CDATA[Background  I built a single page application (SPA) that allows users to get download access to a game I'm developing in my spare time. After downloading and playing the game, users can also can fill...]]></description>
+    </item>
+    <item>
+      <title>AWS Amplify authentication with Cognito</title>
+      <link>https://jaxsbr.github.io/Blog/post/aws-amplify-auth-cognito</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/aws-amplify-auth-cognito</guid>
+      <pubDate>Fri, 10 Jun 2022 15:10:21 GMT</pubDate>
+      <description><![CDATA[AWS Amplify takes away a lot of the heavy lifting around hosting and deploying single page applications (SPA). But an application is useless if we can't control user access to it.  Overview This post...]]></description>
+    </item>
+    <item>
+      <title>Toggle nodejs versions</title>
+      <link>https://jaxsbr.github.io/Blog/post/node-version-toggle</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/node-version-toggle</guid>
+      <pubDate>Fri, 10 Jun 2022 11:55:36 GMT</pubDate>
+      <description><![CDATA[There has been a number times when I tried new frameworks or templates that depend on specific version of nodejs. When this happens I'm faced with skipping on the idea or messing around with my instal...]]></description>
+    </item>
+    <item>
+      <title>Neural Networks For This Dummy</title>
+      <link>https://jaxsbr.github.io/Blog/post/neural-network-intro</link>
+      <guid isPermaLink="true">https://jaxsbr.github.io/Blog/post/neural-network-intro</guid>
+      <pubDate>Fri, 27 May 2022 11:32:11 GMT</pubDate>
+      <description><![CDATA[I'm really interested in AI and Machine learning. I've been curious about neural networks for quite some time, especially since they try to simulate how the human brain works  Goals - Understand the h...]]></description>
+    </item>
+  </channel>
+</rss>

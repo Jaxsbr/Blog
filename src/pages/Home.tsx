@@ -7,6 +7,7 @@ import { ActiveFilters } from '../components/ActiveFilters';
 import { Hero } from '../components/Hero';
 import { FeaturedProjects } from '../components/FeaturedProjects';
 import { AboutCard } from '../components/AboutCard';
+import { LoadingSpinner } from '../components/LoadingSpinner';
 import { featuredProjects } from '../data/projects';
 import type { PostMetadata } from '../types/Post';
 import { fetchPostList } from '../utils/posts';
@@ -82,7 +83,7 @@ export function Home() {
     const hasActiveFilters = searchQuery.trim() !== '' || selectedTags.length > 0;
 
     if (loading) {
-        return <div className="loading">Loading posts...</div>;
+        return <LoadingSpinner message="Loading posts..." />;
     }
 
     return (
