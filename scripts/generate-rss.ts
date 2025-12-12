@@ -13,7 +13,7 @@ const outputPath = join(rootDir, 'public', 'rss.xml');
 
 // Ensure Buffer is available
 if (!globalThis.Buffer) {
-    (globalThis as any).Buffer = Buffer;
+    (globalThis as { Buffer: typeof Buffer }).Buffer = Buffer;
 }
 
 interface PostMetadata {

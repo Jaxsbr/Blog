@@ -8,7 +8,7 @@ interface PostListProps {
     totalCount?: number;
 }
 
-export function PostList({ posts, showExcerpt = false, totalCount }: PostListProps) {
+export function PostList({ posts, showExcerpt = false, totalCount: _totalCount }: PostListProps) {
     if (posts.length === 0) {
         return (
             <div className="no-posts">

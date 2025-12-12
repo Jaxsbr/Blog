@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchPostList } from '../utils/posts';
 import { generateRSSFeed } from '../utils/rss';
-import type { PostMetadata } from '../types/Post';
 
 export function RSSPage() {
     const [rssContent, setRssContent] = useState<string>('');
@@ -24,7 +23,7 @@ export function RSSPage() {
         if (rssContent && !loading) {
             // Set content type and serve RSS
             const blob = new Blob([rssContent], { type: 'application/rss+xml' });
-            const url = URL.createObjectURL(blob);
+            const _url = URL.createObjectURL(blob);
 
             // For proper RSS feed serving, we'd need server-side rendering
             // For now, we'll just display it or trigger download

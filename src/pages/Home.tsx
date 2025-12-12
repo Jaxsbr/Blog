@@ -49,7 +49,7 @@ export function Home() {
         if (searchQuery.trim()) {
             const searchableResults = createSearchIndex(results);
             const searched = searchPosts(searchableResults, searchQuery);
-            results = searched.map(({ searchText, ...post }) => post);
+            results = searched.map(({ searchText: _searchText, ...post }) => post);
         }
 
         setFilteredPosts(results);

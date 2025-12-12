@@ -124,7 +124,7 @@ export function PostDetail() {
                             }
                             return <p {...props}>{children}</p>;
                         },
-                        img({ src, alt, ...props }) {
+                        img({ src, alt, ..._props }) {
                             if (!src) return null;
                             return <LazyImage src={src} alt={alt || ''} className="post-content-image" />;
                         },

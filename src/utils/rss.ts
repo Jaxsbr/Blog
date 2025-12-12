@@ -12,7 +12,7 @@ export function generateRSSFeed(posts: PostMetadata[]): string {
             const postUrl = `${blogUrl}/post/${post.slug}`;
             const pubDate = new Date(post.date).toUTCString();
             const description = post.excerpt || '';
-            const content = description.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const _content = description.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
             const title = post.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
             return `    <item>

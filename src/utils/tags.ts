@@ -1,4 +1,3 @@
-import type { PostMetadata } from '../types/Post';
 
 export interface TagWithCount {
     tag: string;
@@ -46,7 +45,7 @@ const TAG_CATEGORIES: Record<string, string[]> = {
 export function categorizeTags(tags: TagWithCount[]): TagCategory[] {
     const categorized: Map<string, TagWithCount[]> = new Map();
     const uncategorized: TagWithCount[] = [];
-    const tagMap = new Map(tags.map(t => [t.tag.toLowerCase(), t]));
+    const _tagMap = new Map(tags.map(t => [t.tag.toLowerCase(), t]));
 
     // Initialize categories
     Object.keys(TAG_CATEGORIES).forEach(categoryName => {
