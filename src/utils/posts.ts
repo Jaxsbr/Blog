@@ -129,3 +129,13 @@ export function getAllTags(posts: PostMetadata[]): { tag: string; count: number 
         .sort((a, b) => b.count - a.count);
 }
 
+export function paginatePosts<T>(posts: T[], page: number, perPage: number): T[] {
+    const startIndex = (page - 1) * perPage;
+    const endIndex = startIndex + perPage;
+    return posts.slice(startIndex, endIndex);
+}
+
+export function getTotalPages(totalItems: number, perPage: number): number {
+    return Math.ceil(totalItems / perPage);
+}
+
