@@ -1,6 +1,7 @@
 ---
 title: Boxyvault - Github CI/CD
 date: 2023-12-22 06:41:48
+writtenBy: human
 tags:
 - Boxyvault
 - Github

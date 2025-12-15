@@ -1,6 +1,7 @@
 ---
 title: Hexo Basics
 date: 2022-05-04 09:00:00
+writtenBy: human
 tags: [Hexo]
 ---
 

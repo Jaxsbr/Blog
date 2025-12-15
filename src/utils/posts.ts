@@ -23,6 +23,17 @@ const normalizeTags = (raw: unknown): string[] => {
     return tags;
 };
 
+const normalizeWrittenBy = (raw: unknown): 'human' | 'ai' => {
+    if (typeof raw !== 'string') {
+        return 'human';
+    }
+    const normalized = raw.trim().toLowerCase();
+    if (normalized === 'ai') {
+        return 'ai';
+    }
+    return 'human';
+};
+
 export async function fetchPostList(): Promise<PostMetadata[]> {
     try {
         if (!(globalThis as unknown as { Buffer?: typeof Buffer }).Buffer) {
@@ -48,6 +59,7 @@ export async function fetchPostList(): Promise<PostMetadata[]> {
                 featured: data.featured || false,
                 excerpt,
                 readingTime,
+                writtenBy: normalizeWrittenBy(data.writtenBy),
             };
         });
 
@@ -80,6 +92,7 @@ export async function fetchPost(slug: string): Promise<Post | null> {
             content,
             excerpt,
             readingTime,
+            writtenBy: normalizeWrittenBy(data.writtenBy),
         };
     } catch (error) {
         console.error('Error fetching post:', error);

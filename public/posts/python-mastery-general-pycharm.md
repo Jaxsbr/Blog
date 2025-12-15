@@ -1,6 +1,7 @@
 ---
 title: "Python Mastery - General: Introduction to PyCharm"
 date: 2023-05-24 06:42:35
+writtenBy: human
 tags:
     - Python
     - PyCharm

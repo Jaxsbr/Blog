@@ -64,6 +64,9 @@ export function PostDetail() {
                 <div className="post-meta">
                     <time dateTime={post.date}>{formatDate(post.date)}</time>
                     <span className="reading-time">{post.readingTime} min read</span>
+                    <span className={`written-by-badge written-by-badge--${post.writtenBy || 'human'}`}>
+                        {post.writtenBy === 'ai' ? '🤖 AI Generated' : '✍️ Human Written'}
+                    </span>
                 </div>
                 {post.tags.length > 0 && (
                     <div className="post-tags">

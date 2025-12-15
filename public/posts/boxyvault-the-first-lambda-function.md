@@ -1,6 +1,7 @@
 ---
 title: Boxyvault - The first Lambda function
 date: 2023-11-10 22:31:13
+writtenBy: human
 tags:
 - AWS
 - Boxyvault

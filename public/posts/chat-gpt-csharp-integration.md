@@ -1,6 +1,7 @@
 ---
 title: ChatGPT C# Integration
 date: 2023-05-01 17:20:56
+writtenBy: human
 tags:
     - AI
     - ChatGPT

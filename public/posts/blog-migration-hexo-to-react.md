@@ -1,6 +1,7 @@
 ---
 title: "Blog Migration: From Hexo to React + TypeScript"
 date: 2025-12-11 10:00:00
+writtenBy: ai
 tags:
 - React
 - TypeScript

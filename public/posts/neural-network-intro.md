@@ -1,6 +1,7 @@
 ---
 title: Neural Networks For This Dummy
 date: 2022-05-27 11:32:11
+writtenBy: human
 tags: [Neural Networks, AI, Artificial Intelligence, ML, Machine Learning, C#]
 ---
 

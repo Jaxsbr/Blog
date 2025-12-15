@@ -1,6 +1,7 @@
 ---
 title: SQL Cheatsheet
 date: 2022-12-09 15:34:17
+writtenBy: human
 tags: SQL
 ---
 

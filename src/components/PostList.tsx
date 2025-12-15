@@ -23,9 +23,11 @@ export function PostList({ posts, showExcerpt = false, totalCount: _totalCount }
             {posts.map((post) => {
                 const visibleTags = showExcerpt ? post.tags.slice(0, 4) : post.tags;
                 const remainingTags = showExcerpt && post.tags.length > 4 ? post.tags.length - 4 : 0;
+                const writtenByClass = post.writtenBy === 'ai' ? 'post-item--ai' : 'post-item--human';
+                const writtenByIcon = post.writtenBy === 'ai' ? '🤖 AI' : '✍️ Human';
 
                 return (
-                    <article key={post.slug} className="post-item">
+                    <article key={post.slug} className={`post-item ${writtenByClass}`}>
                         <Link to={`/post/${post.slug}`} className="post-link">
                             <h2 className="post-title">{post.title}</h2>
                         </Link>
@@ -39,6 +41,7 @@ export function PostList({ posts, showExcerpt = false, totalCount: _totalCount }
                             {post.readingTime && (
                                 <span className="reading-time">{post.readingTime} min read</span>
                             )}
+                            <span className="written-by-icon">{writtenByIcon}</span>
                             {post.tags.length > 0 && (
                                 <div className="post-tags">
                                     {visibleTags.map((tag) => (

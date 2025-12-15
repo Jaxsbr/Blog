@@ -1,6 +1,7 @@
 ---
 title: "Python Power-Up: Your Ultimate Reference Guide and Library Lookup"
 date: 2023-05-21 07:19:29
+writtenBy: ai
 tags:
 - NumPy
 - Pandas
