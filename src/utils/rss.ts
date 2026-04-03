@@ -27,9 +27,9 @@ export function generateRSSFeed(posts: PostMetadata[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Personal Knowledge Blog</title>
+    <title>Jacobus Brink — Blog</title>
     <link>${blogUrl}</link>
-    <description>Personal knowledge blog and portfolio</description>
+    <description>Writing about autonomous build workflows, MCP tooling, compound engineering, and the craft of building software.</description>
     <language>en-us</language>
     <lastBuildDate>${pubDate}</lastBuildDate>
     <atom:link href="${rssUrl}" rel="self" type="application/rss+xml"/>
