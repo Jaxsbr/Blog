@@ -4,10 +4,10 @@ export function Hero() {
     return (
         <div className="hero-section">
             <div className="hero-content">
-                <h1 className="hero-headline">Adapting to Change, Building Solutions</h1>
+                <h1 className="hero-headline">Engineering Systems That Compound</h1>
                 <p className="hero-subtitle">
-                    Full-stack engineer focused on continuous learning and pragmatic upskilling. Currently exploring AI integration
-                    while maintaining expertise in modern web technologies and cloud infrastructure.
+                    Writing about autonomous build workflows, MCP tooling, compound engineering,
+                    and the craft of building software that makes teams more effective.
                 </p>
                 <div className="hero-cta">
                     <a href="#projects" className="cta-button cta-primary">

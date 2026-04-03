@@ -12,33 +12,32 @@ export interface Project {
 
 export const featuredProjects: Project[] = [
     {
-        name: 'JFDocSearch - RAG Documentation Tool',
-        description: 'MCP (Model Context Protocol) tool enabling semantic search across documentation using vector databases. Built with Qdrant for embeddings and natural language querying.',
-        techStack: ['TypeScript', 'Qdrant', 'MCP', 'RAG', 'Vector Search'],
-        status: 'learning',
-        githubUrl: 'https://github.com/Jaxsbr/JFDocSearch',
-    },
-    {
-        name: 'Personal Knowledge Blog',
-        description: 'Modern blog platform built with React and TypeScript, featuring markdown support, search, and tag filtering. Serves as both a content platform and portfolio piece.',
-        techStack: ['React', 'TypeScript', 'Vite', 'Markdown'],
+        name: 'mustard',
+        description: 'Personal knowledge graph — MCP server, CLI, and TUI. SQLite-backed with full-text search and context retrieval via graph traversal.',
+        techStack: ['TypeScript', 'MCP', 'SQLite', 'Node.js'],
         status: 'active',
-        githubUrl: 'https://github.com/Jaxsbr/Blog',
+        githubUrl: 'https://github.com/Jaxsbr/mustard',
     },
     {
-        name: 'Neon Arcade Portfolio',
-        description: 'Interactive portfolio website with cyberpunk aesthetic, featuring game showcases and animated effects. Complete rebuild with modern web technologies.',
-        techStack: ['HTML5', 'CSS3', 'JavaScript', 'Canvas API'],
-        status: 'maintained',
-        githubUrl: 'https://github.com/Jaxsbr/Jaxsbr.github.io',
-        demoUrl: 'https://jaxsbr.github.io',
-    },
-    {
-        name: 'CuteDefense - Tower Defense Game',
-        description: 'Complete tower defense game built with HTML5 Canvas, featuring wave-based gameplay, tower upgrades, and resource management systems.',
-        techStack: ['JavaScript', 'HTML5 Canvas', 'Game Development'],
+        name: 'local_lense',
+        description: 'Production-ready RAG documentation search tool. Indexes local docs into Qdrant vector DB for semantic search, with MCP integration for Cursor.',
+        techStack: ['TypeScript', 'Qdrant', 'RAG', 'MCP', 'Docker'],
         status: 'completed',
-        githubUrl: 'https://github.com/Jaxsbr/CuteDefense',
+        githubUrl: 'https://github.com/Jaxsbr/local_lense',
+    },
+    {
+        name: 'flow-mo',
+        description: 'YAML-source-of-truth diagram editor with VS Code extension. Drag, connect, and edit flowcharts with React Flow.',
+        techStack: ['React', 'TypeScript', 'VS Code', 'YAML'],
+        status: 'active',
+        githubUrl: 'https://github.com/Jaxsbr/flow-mo',
+    },
+    {
+        name: 'math-practice',
+        description: 'Shipped educational math game for kids aged 6-12. Six operation paths with star-based progression and adventure map UI.',
+        techStack: ['React', 'TypeScript', 'Vite'],
+        status: 'completed',
+        githubUrl: 'https://github.com/Jaxsbr/math-practice',
+        demoUrl: 'https://jaxsbr.github.io/math-practice/',
     },
 ];
-

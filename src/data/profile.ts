@@ -13,19 +13,19 @@ export interface Profile {
 
 export const profile: Profile = {
     name: 'Jacobus Brink',
-    role: 'Senior Full-Stack Engineer',
-    bio: 'Full-stack engineer with expertise in modern web technologies and cloud infrastructure. Continuously learning and adapting to new technologies—currently exploring AI integration as part of pragmatic upskilling. Focused on building scalable solutions and maintaining a balanced approach to professional growth.',
+    role: 'Senior Product Engineer',
+    bio: 'I build systems that make engineering teams dramatically more effective — autonomous build workflows, MCP-integrated knowledge tools, and compound engineering practices. I also make games for fun.',
     skills: [
         'TypeScript',
         'React',
         'Node.js',
-        '.NET',
-        'AI/LLM Integration',
-        'RAG Systems',
-        'Vector Databases',
+        'MCP',
+        'Agent Orchestration',
+        'Compound Engineering',
+        'SQLite',
         'AWS',
-        'GraphQL',
-        'PostgreSQL',
+        'GitHub Actions',
+        '.NET',
     ],
     links: {
         github: 'https://github.com/Jaxsbr',
