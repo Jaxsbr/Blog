@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { PostMetadata } from '../types/Post';
 import { formatDate } from '../utils/posts';
+import { PostCover } from './PostCover';
 
 interface PostListProps {
     posts: PostMetadata[];
@@ -23,49 +24,54 @@ export function PostList({ posts, showExcerpt = false, totalCount: _totalCount }
             {posts.map((post) => {
                 const visibleTags = showExcerpt ? post.tags.slice(0, 4) : post.tags;
                 const remainingTags = showExcerpt && post.tags.length > 4 ? post.tags.length - 4 : 0;
+
                 return (
                     <article key={post.slug} className="post-item">
-                        <Link to={`/post/${post.slug}`} className="post-link">
-                            <h2 className="post-title">{post.title}</h2>
+                        <Link to={`/post/${post.slug}`} className="post-cover-link" tabIndex={-1} aria-hidden="true">
+                            <PostCover slug={post.slug} variant="card" />
                         </Link>
+                        <div className="post-item-body">
+                            <Link to={`/post/${post.slug}`} className="post-link">
+                                <h2 className="post-title">{post.title}</h2>
+                            </Link>
 
-                        {showExcerpt && post.excerpt && (
-                            <p className="post-excerpt">{post.excerpt}</p>
-                        )}
-
-                        <div className="post-meta">
-                            <time dateTime={post.date}>{formatDate(post.date)}</time>
-                            {post.readingTime && (
-                                <span className="reading-time">{post.readingTime} min read</span>
+                            {showExcerpt && post.excerpt && (
+                                <p className="post-excerpt">{post.excerpt}</p>
                             )}
-{post.tags.length > 0 && (
-                                <div className="post-tags">
-                                    {visibleTags.map((tag) => (
-                                        <Link
-                                            key={tag}
-                                            to={`/tag/${encodeURIComponent(tag)}`}
-                                            className="tag"
-                                            onClick={(e) => e.stopPropagation()}
-                                        >
-                                            {tag}
-                                        </Link>
-                                    ))}
-                                    {remainingTags > 0 && (
-                                        <span className="tag-more">+{remainingTags} more</span>
-                                    )}
-                                </div>
+
+                            <div className="post-meta">
+                                <time dateTime={post.date}>{formatDate(post.date)}</time>
+                                {post.readingTime && (
+                                    <span className="reading-time">{post.readingTime} min read</span>
+                                )}
+                                {post.tags.length > 0 && (
+                                    <div className="post-tags">
+                                        {visibleTags.map((tag) => (
+                                            <Link
+                                                key={tag}
+                                                to={`/tag/${encodeURIComponent(tag)}`}
+                                                className="tag"
+                                                onClick={(e) => e.stopPropagation()}
+                                            >
+                                                {tag}
+                                            </Link>
+                                        ))}
+                                        {remainingTags > 0 && (
+                                            <span className="tag-more">+{remainingTags} more</span>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+
+                            {showExcerpt && (
+                                <Link to={`/post/${post.slug}`} className="read-more-link">
+                                    Read more →
+                                </Link>
                             )}
                         </div>
-
-                        {showExcerpt && (
-                            <Link to={`/post/${post.slug}`} className="read-more-link">
-                                Read more →
-                            </Link>
-                        )}
                     </article>
                 );
             })}
         </div>
     );
 }
-

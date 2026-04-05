@@ -11,6 +11,7 @@ import { CopyLinkButton } from './CopyLinkButton';
 import { RelatedPosts } from './RelatedPosts';
 import { LoadingSpinner } from './LoadingSpinner';
 import { LazyImage } from './LazyImage';
+import { PostCover } from './PostCover';
 
 export function PostDetail() {
     const { slug } = useParams<{ slug: string }>();
@@ -56,96 +57,98 @@ export function PostDetail() {
 
     return (
         <article className="post-detail">
-            <header className="post-header">
-                <div className="post-header-top">
-                    <h1>{post.title}</h1>
-                    <CopyLinkButton url={postUrl} />
-                </div>
-                <div className="post-meta">
-                    <time dateTime={post.date}>{formatDate(post.date)}</time>
-                    <span className="reading-time">{post.readingTime} min read</span>
-                </div>
-                {post.tags.length > 0 && (
-                    <div className="post-tags">
-                        {post.tags.map((tag) => (
-                            <Link
-                                key={tag}
-                                to={`/tag/${encodeURIComponent(tag)}`}
-                                className="tag"
-                            >
-                                {tag}
-                            </Link>
-                        ))}
+            <PostCover slug={post.slug} variant="banner" />
+            <div className="post-detail-inner">
+                <header className="post-header">
+                    <div className="post-header-top">
+                        <h1>{post.title}</h1>
+                        <CopyLinkButton url={postUrl} />
                     </div>
-                )}
-            </header>
+                    <div className="post-meta">
+                        <time dateTime={post.date}>{formatDate(post.date)}</time>
+                        <span className="reading-time">{post.readingTime} min read</span>
+                    </div>
+                    {post.tags.length > 0 && (
+                        <div className="post-tags">
+                            {post.tags.map((tag) => (
+                                <Link
+                                    key={tag}
+                                    to={`/tag/${encodeURIComponent(tag)}`}
+                                    className="tag"
+                                >
+                                    {tag}
+                                </Link>
+                            ))}
+                        </div>
+                    )}
+                </header>
 
-            <div className="post-content">
-                <ReactMarkdown
-                    remarkPlugins={[remarkGfm]}
-                    components={{
-                        code({ className, children, ...props }) {
-                            const match = /language-(\w+)/.exec(className || '');
-                            const isInline = !match;
+                <div className="post-content">
+                    <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                            code({ className, children, ...props }) {
+                                const match = /language-(\w+)/.exec(className || '');
+                                const isInline = !match;
 
-                            if (!isInline && match) {
+                                if (!isInline && match) {
+                                    return (
+                                        <SyntaxHighlighter
+                                            style={vscDarkPlus as { [key: string]: React.CSSProperties }}
+                                            language={match[1]}
+                                            PreTag="div"
+                                            {...(props as React.ComponentProps<typeof SyntaxHighlighter>)}
+                                        >
+                                            {String(children).replace(/\n$/, '')}
+                                        </SyntaxHighlighter>
+                                    );
+                                }
+
                                 return (
-                                    <SyntaxHighlighter
-                                        style={vscDarkPlus as { [key: string]: React.CSSProperties }}
-                                        language={match[1]}
-                                        PreTag="div"
-                                        {...(props as React.ComponentProps<typeof SyntaxHighlighter>)}
-                                    >
-                                        {String(children).replace(/\n$/, '')}
-                                    </SyntaxHighlighter>
+                                    <code className={className} {...props}>
+                                        {children}
+                                    </code>
                                 );
-                            }
-
-                            return (
-                                <code className={className} {...props}>
-                                    {children}
-                                </code>
-                            );
-                        },
-                        p({ children, ...props }) {
-                            // Check if paragraph only contains an image
-                            const childrenArray = React.Children.toArray(children);
-                            if (childrenArray.length === 1) {
-                                const child = childrenArray[0];
-                                if (React.isValidElement(child)) {
-                                    // Check if it's an img element or has src prop (LazyImage)
-                                    const isImage = child.type === 'img' ||
-                                        (child.props && 'src' in child.props);
-                                    if (isImage) {
-                                        // Return image without paragraph wrapper to avoid nesting issues
-                                        return <>{children}</>;
+                            },
+                            p({ children, ...props }) {
+                                // Check if paragraph only contains an image
+                                const childrenArray = React.Children.toArray(children);
+                                if (childrenArray.length === 1) {
+                                    const child = childrenArray[0];
+                                    if (React.isValidElement(child)) {
+                                        // Check if it's an img element or has src prop (LazyImage)
+                                        const isImage = child.type === 'img' ||
+                                            (child.props && 'src' in child.props);
+                                        if (isImage) {
+                                            // Return image without paragraph wrapper to avoid nesting issues
+                                            return <>{children}</>;
+                                        }
                                     }
                                 }
-                            }
-                            return <p {...props}>{children}</p>;
-                        },
-                        img({ src, alt }) {
-                            if (!src) return null;
-                            return <LazyImage src={src} alt={alt || ''} className="post-content-image" />;
-                        },
-                    }}
-                >
-                    {post.content}
-                </ReactMarkdown>
-            </div>
+                                return <p {...props}>{children}</p>;
+                            },
+                            img({ src, alt }) {
+                                if (!src) return null;
+                                return <LazyImage src={src} alt={alt || ''} className="post-content-image" />;
+                            },
+                        }}
+                    >
+                        {post.content}
+                    </ReactMarkdown>
+                </div>
 
-            <footer className="post-footer">
-                {post.aiGenerated && (
-                    <p className="ai-generated-note">This post was AI-generated.</p>
-                )}
-                {post && allPosts.length > 0 && (
-                    <RelatedPosts currentPost={post} allPosts={allPosts} />
-                )}
-                <Link to="/" className="back-link">
-                    ← Back to all posts
-                </Link>
-            </footer>
+                <footer className="post-footer">
+                    {post.aiGenerated && (
+                        <p className="ai-generated-note">This post was AI-generated.</p>
+                    )}
+                    {post && allPosts.length > 0 && (
+                        <RelatedPosts currentPost={post} allPosts={allPosts} />
+                    )}
+                    <Link to="/" className="back-link">
+                        ← Back to all posts
+                    </Link>
+                </footer>
+            </div>
         </article>
     );
 }
-
