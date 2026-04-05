@@ -50,10 +50,13 @@ export async function fetchPostList(): Promise<PostMetadata[]> {
                 excerpt,
                 readingTime,
                 aiGenerated: data.ai === true,
+                draft: data.draft === true,
             };
         });
 
-        return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        return posts
+            .filter((p) => !p.draft)
+            .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     } catch (error) {
         console.error('Error loading post list:', error);
         return [];

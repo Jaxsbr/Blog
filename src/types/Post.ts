@@ -7,6 +7,7 @@ export interface PostMetadata {
     excerpt?: string;
     readingTime?: number;
     aiGenerated?: boolean;
+    draft?: boolean;
 }
 
 export interface Post extends PostMetadata {
