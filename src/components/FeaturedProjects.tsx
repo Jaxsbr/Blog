@@ -1,5 +1,6 @@
 import { featuredProjects } from '../data/projects';
 import type { Project, ProjectStatus } from '../data/projects';
+import { PostCover } from './PostCover';
 
 const statusConfig: Record<ProjectStatus, { label: string; className: string }> = {
     active: { label: 'Active', className: 'status-active' },
@@ -14,48 +15,44 @@ function ProjectCard({ project }: { project: Project }) {
 
     return (
         <div className="project-card">
-            <div className="project-header">
+            <PostCover slug={project.name} variant="card" />
+            <div className="project-card-body">
                 <div className="project-title-row">
                     <h4 className="project-name">{project.name}</h4>
                     <span className={`status-badge ${statusInfo.className}`}>
                         {statusInfo.label}
                     </span>
                 </div>
-                {project.thumbnail && (
-                    <div className="project-thumbnail" style={{ background: `linear-gradient(135deg, #8b9a7a, #5a6b4a)` }}>
-                        {/* Placeholder for thumbnail - can be replaced with actual image */}
-                    </div>
-                )}
-            </div>
-            <p className="project-description">{project.description}</p>
-            <div className="project-tech">
-                {project.techStack.map((tech) => (
-                    <span key={tech} className="tech-badge">
-                        {tech}
-                    </span>
-                ))}
-            </div>
-            <div className="project-links">
-                {project.githubUrl && (
-                    <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                    >
-                        GitHub →
-                    </a>
-                )}
-                {project.demoUrl && (
-                    <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                    >
-                        Demo →
-                    </a>
-                )}
+                <p className="project-description">{project.description}</p>
+                <div className="project-tech">
+                    {project.techStack.map((tech) => (
+                        <span key={tech} className="tech-badge">
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+                <div className="project-links">
+                    {project.githubUrl && (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-link"
+                        >
+                            GitHub →
+                        </a>
+                    )}
+                    {project.demoUrl && (
+                        <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-link"
+                        >
+                            Demo →
+                        </a>
+                    )}
+                </div>
             </div>
         </div>
     );
@@ -77,4 +74,3 @@ export function FeaturedProjects() {
         </div>
     );
 }
-
