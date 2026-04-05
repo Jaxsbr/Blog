@@ -11,7 +11,6 @@ tags:
   - API Gateway
   - DynamoDB
 date: 2022-07-01 06:49:39
-writtenBy: human
 ---
 
 

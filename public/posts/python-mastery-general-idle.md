@@ -1,7 +1,6 @@
 ---
 title: "Python Mastery - General: Introduction to Python IDLE"
 date: 2023-05-20 20:04:54
-writtenBy: human
 tags:
 - Python
 - IDLE

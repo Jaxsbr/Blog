@@ -6,7 +6,7 @@ export interface PostMetadata {
     featured?: boolean;
     excerpt?: string;
     readingTime?: number;
-    writtenBy?: 'human' | 'ai';
+    aiGenerated?: boolean;
 }
 
 export interface Post extends PostMetadata {

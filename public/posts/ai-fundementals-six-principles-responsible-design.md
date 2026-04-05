@@ -1,7 +1,6 @@
 ---
 title: Microsoft's Responsible AI Principles for Building Ethical AI Systems
 date: 2023-05-10 21:39:48
-writtenBy: human
 tags:
 - AI
 - Azure

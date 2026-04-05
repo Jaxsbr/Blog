@@ -7,7 +7,6 @@ tags:
     - .NET 
     - SDK
 date: 2023-02-17 15:04:39
-writtenBy: human
 ---
 
 # Intro

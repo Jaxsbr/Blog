@@ -1,7 +1,6 @@
 ---
 title: Boxyvault - Lambda function origins
 date: 2023-10-16 07:32:47
-writtenBy: human
 tags:
     - Boxyvault
     - AWS

@@ -1,7 +1,6 @@
 ---
 title: Integrate with AWS Comprehend SDK in C#
 date: 2023-05-06 06:57:37
-writtenBy: human
 tags:
     - AWS
     - Comprehend

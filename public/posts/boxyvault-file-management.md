@@ -1,7 +1,6 @@
 ---
 title: Boxyvault - Personal cloud based file management system
 date: 2023-10-13 07:06:20
-writtenBy: human
 tags:
     - Boxyvault
     - Cloud

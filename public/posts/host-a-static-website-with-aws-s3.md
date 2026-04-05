@@ -1,7 +1,6 @@
 ---
 title: How to host a static website with AWS S3
 date: 2022-05-19 06:16:57
-writtenBy: human
 tags: 
     [AWS, S3, CloudFormation, Bash, Script, Static Website Hosting]
 ---
