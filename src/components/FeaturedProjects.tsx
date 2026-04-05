@@ -25,7 +25,7 @@ function ProjectCard({ project }: { project: Project }) {
                 </div>
                 <p className="project-description">{project.description}</p>
                 <div className="project-tech">
-                    {project.techStack.map((tech) => (
+                    {project.techStack.slice(0, 3).map((tech) => (
                         <span key={tech} className="tech-badge">
                             {tech}
                         </span>

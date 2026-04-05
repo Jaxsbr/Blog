@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const CANVAS_W = 800;
-const CANVAS_H = { card: 160, banner: 200 } as const;
+const CANVAS_H = { card: 80, banner: 200 } as const;
 
 // 6 palettes harmonious with the sage green blog theme.
 // Each palette: dark-to-light gradient pair, dot colour, accent circle colour.
