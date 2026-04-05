@@ -695,9 +695,6 @@
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1rem;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
 }
 
 .post-header h1 {
