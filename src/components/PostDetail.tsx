@@ -61,7 +61,10 @@ export function PostDetail() {
             <div className="post-detail-inner">
                 <header className="post-header">
                     <div className="post-header-top">
-                        <h1>{post.title}</h1>
+                        <h1>
+                            {post.title}
+                            {post.aiGenerated && <span className="ai-badge">AI</span>}
+                        </h1>
                         <CopyLinkButton url={postUrl} />
                     </div>
                     <div className="post-meta">
@@ -138,9 +141,6 @@ export function PostDetail() {
                 </div>
 
                 <footer className="post-footer">
-                    {post.aiGenerated && (
-                        <p className="ai-generated-note">This post was AI-generated.</p>
-                    )}
                     {post && allPosts.length > 0 && (
                         <RelatedPosts currentPost={post} allPosts={allPosts} />
                     )}

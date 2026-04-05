@@ -916,10 +916,20 @@
     border-top: 1px solid var(--border-color);
 }
 
-.ai-generated-note {
-    font-size: 0.875rem;
-    color: var(--text-light);
-    margin-bottom: 2rem;
+.ai-badge {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #93c5fd;
 }
 
 .back-link {

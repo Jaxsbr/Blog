@@ -32,7 +32,10 @@ export function PostList({ posts, showExcerpt = false, totalCount: _totalCount }
                         </Link>
                         <div className="post-item-body">
                             <Link to={`/post/${post.slug}`} className="post-link">
-                                <h2 className="post-title">{post.title}</h2>
+                                <h2 className="post-title">
+                                    {post.title}
+                                    {post.aiGenerated && <span className="ai-badge">AI</span>}
+                                </h2>
                             </Link>
 
                             {showExcerpt && post.excerpt && (
